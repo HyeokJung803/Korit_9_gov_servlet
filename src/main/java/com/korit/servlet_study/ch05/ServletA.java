@@ -8,7 +8,7 @@ public class ServletA extends Servlet {
         System.out.println("서블릿 A에서 GET 호출");
         resp.setStatus(200);
         resp.setContentType("application/json");
-        resp.setCharactorEncoding("UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         resp.setData("응답데이터");
     }
 

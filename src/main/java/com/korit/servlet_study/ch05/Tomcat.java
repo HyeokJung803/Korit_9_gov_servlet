@@ -10,7 +10,7 @@ public class Tomcat {
         Response response = new Response();
 
         request.setUrl("/servlet/a");
-        request.setMethod("POST");
+        request.setMethod("GET");
         request.setData("요청 테스트 데이터");
 
         Map<String, Servlet> servletMap = Map.of(

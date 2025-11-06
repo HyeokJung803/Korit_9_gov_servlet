@@ -9,9 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class UserDto {
-    public User toUser;
     private String username;
     private String password;
     private String name;
@@ -25,4 +23,5 @@ public class UserDto {
                 .email(email)
                 .build();
     }
+
 }

@@ -1,4 +1,4 @@
-package com.korit.servlet_study.ch03;
+package com.korit.servlet_study.ch07;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SuccessResponse<T> {
-    private int status = 200;
-    private String message;
-    private T body;
+public class Board {
+    private Long id;
+    private String title;
+    private String content;
+    private String writer;
 }

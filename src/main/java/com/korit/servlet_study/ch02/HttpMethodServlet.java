@@ -17,10 +17,11 @@ import java.util.Map;
  *      - 용도: 리소스 조회
  *      - 특징:
  *          서버로부터 데이터를 요청만 하고 수정하지 않음
- *          요청 데이터(파라미터)가 URL에 포함됨 ex: http://test.com/user?username=test1234
+ *          요청 데이터(파라미터)가 URL에 포함됨 ex: http://test.com/users?username=test1234
  *          브라우저 히스토리에 남음
  *          북마크 가능
  *          캐싱 가능
+ *          멱등성 있음
  *
  * 2. Post
  *      - 용도: 새로운 리소스 생성
@@ -35,12 +36,14 @@ import java.util.Map;
  *      - 특징:
  *          리소스가 있으면 전체를 교체, 없으면 생성
  *          전체 데이터를 전송해야함
+ *          멱등성 있음
  *
  * 4. Patch
  *      - 용도: 리소스 부분 수정
  *      - 특징:
  *          리소스의 일부만 수정
  *          Put보다 효율적(변경할 필드만 전송)
+ *          멱등성 있음
  *
  * 5. Delete
  *      - 용도: 리소스 삭제
@@ -61,6 +64,7 @@ import java.util.Map;
  *      - 용도: 디버깅, 요청 경로 루프백 테스트
  *
  */
+
 @WebServlet("/ch02/method")
 public class HttpMethodServlet extends HttpServlet {
     Map<String, String> datas = new HashMap<>(Map.of(
@@ -73,23 +77,21 @@ public class HttpMethodServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("GET 요청 들어옴");
 
-
-
-        //요청
+        // 요청
         System.out.println(req.getMethod());
         // 요청 데이터(파라미터)
         System.out.println(req.getParameter("datasKey"));
         String datasKey = req.getParameter("datasKey");
 
         System.out.println(datas.get(datasKey));
-        /// ///////////////////////////////////////////
+/// ////////////////////////////////////////////////////
         // 응답
         resp.setContentType("text/html");
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
         PrintWriter out = resp.getWriter();
         out.println(datas.get(datasKey));
-    }
 
+    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -100,11 +102,10 @@ public class HttpMethodServlet extends HttpServlet {
         // 요청 데이터(파라미터)
         System.out.println(req.getParameter("textData"));
         datas.put(req.getParameter("keyName"), req.getParameter("value"));
-        /// ////////////////////////////////////////////
+/// ////////////////////////////////////////////////////
         resp.setStatus(201);
         resp.setContentType("text/plain");
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
         resp.getWriter().println("데이터 추가 성공!!");
-
     }
 }

@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 public abstract class Servlet {
-
     public void doGet(Request req, Response resp) {
 
     }

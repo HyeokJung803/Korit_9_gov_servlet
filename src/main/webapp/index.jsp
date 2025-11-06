@@ -9,7 +9,7 @@
 <br/>
 <a href="hello-servlet">Hello Servlet</a>
 <%
-    String name = "정혁";
+    String name = "김준일";x
 %>
 <h1><%=name%></h1>
 </body>

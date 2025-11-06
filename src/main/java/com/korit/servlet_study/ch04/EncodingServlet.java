@@ -13,16 +13,19 @@ public class EncodingServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
         String data = req.getParameter("data");
         System.out.println(data);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
-        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
+//        req.setCharacterEncoding(StandardCharsets.UTF_8.name());
+        resp.getWriter().println("한글");
+        resp.getWriter().println("한글");
+        resp.getWriter().println("한글");
+        resp.getWriter().println("한글");
+        resp.getWriter().println("한글");
+//        resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
 
-        System.out.println(req.getParameter("data"));
     }
 }

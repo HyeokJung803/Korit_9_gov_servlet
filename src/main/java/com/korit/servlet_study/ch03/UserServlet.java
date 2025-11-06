@@ -29,9 +29,9 @@ public class UserServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<User> users = userRepository.findAll();
         resp.setCharacterEncoding(StandardCharsets.UTF_8.name());
         resp.setContentType("application/json");
+        List<User> users = userRepository.findAll();
         objectMapper.writeValue(resp.getWriter(), users);
     }
 

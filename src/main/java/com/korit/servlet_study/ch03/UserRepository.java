@@ -8,7 +8,7 @@ import java.util.Optional;
 public class UserRepository {
     private static UserRepository instance;
     private List<User> users;
-    private Long autoId = 0L;
+    private Long autoId = 0l;
 
     private UserRepository() {
         users = new ArrayList<>();
@@ -30,7 +30,7 @@ public class UserRepository {
         return users.stream()
                 .filter(user -> user.getUsername().equals(username))
                 .findFirst()
-                .orElseGet(() -> null);
+                .orElse(null);
     }
 
     public User findByUsernameNonOptional(String username) {

@@ -1,7 +1,5 @@
 package com.korit.servlet_study.ch05;
 
-import java.nio.charset.StandardCharsets;
-
 public class ServletA extends Servlet {
     @Override
     public void doGet(Request req, Response resp) {

@@ -1,6 +1,5 @@
 package com.korit.servlet_study.ch04;
 
-import javax.servlet.Filter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,4 +14,5 @@ public class FilterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("요청 들어옴");
     }
+
 }

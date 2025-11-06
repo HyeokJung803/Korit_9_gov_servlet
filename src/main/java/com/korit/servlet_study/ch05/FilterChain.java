@@ -14,8 +14,8 @@ public class FilterChain {
         if (currentOrder < filters.size()) {
             filters.get(currentOrder++).doFilter(req, resp, this);
             return;
-
         }
+
         if ("GET".equalsIgnoreCase(req.getMethod())) {
             servlet.doGet(req, resp);
         } else if ("POST".equalsIgnoreCase(req.getMethod())) {
